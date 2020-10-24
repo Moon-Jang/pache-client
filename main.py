@@ -15,11 +15,13 @@ from PyQt5.QtWidgets import QFormLayout
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import Qt
+import client_socket
+
 
 class Form(QWidget):
     def __init__(self):
         QWidget.__init__(self, flags=Qt.Widget)
-
+        self.clientSocket = client_socket.ClientSocket(self)
         self.setWindowTitle("Various Layout Widgets")
         self.setFixedWidth(640)
         self.setFixedHeight(480)
@@ -31,7 +33,7 @@ class Form(QWidget):
         grp_1 = QGroupBox("QBoxLayout")
         layout_base.addWidget(grp_1)
         layout = QHBoxLayout()
-        btn = QPushButton("클릭",self)
+        btn = QPushButton("클릭", self)
         btn.clicked.connect(self.btn_clicked)
         layout.addWidget(btn)
         layout.addWidget(QPushButton("Butoon 1"))
@@ -62,8 +64,13 @@ class Form(QWidget):
         layout.addRow(QLabel("Line Edit 1:"), QLineEdit())
         layout.addRow(QLabel("Line Edit 2:"), QLineEdit())
         layout.addRow(QLabel("Line Edit 3:"), QLineEdit())
+
     def btn_clicked(self):
         print("버튼 클릭")
+
+    def __del__(self):
+        self.clientSocket.stop()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
