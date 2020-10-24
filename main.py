@@ -31,7 +31,9 @@ class Form(QWidget):
         grp_1 = QGroupBox("QBoxLayout")
         layout_base.addWidget(grp_1)
         layout = QHBoxLayout()
-        layout.addWidget(QPushButton("Butoon 1"))
+        btn = QPushButton("클릭",self)
+        btn.clicked.connect(self.btn_clicked)
+        layout.addWidget(btn)
         layout.addWidget(QPushButton("Butoon 1"))
         layout.addWidget(QPushButton("Butoon 1"))
         grp_1.setLayout(layout)
@@ -60,7 +62,8 @@ class Form(QWidget):
         layout.addRow(QLabel("Line Edit 1:"), QLineEdit())
         layout.addRow(QLabel("Line Edit 2:"), QLineEdit())
         layout.addRow(QLabel("Line Edit 3:"), QLineEdit())
-
+    def btn_clicked(self):
+        print("버튼 클릭")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
