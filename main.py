@@ -21,7 +21,7 @@ import client_socket
 class Form(QWidget):
     def __init__(self):
         QWidget.__init__(self, flags=Qt.Widget)
-        self.clientSocket = client_socket.ClientSocket(self)
+        # self.clientSocket = client_socket.ClientSocket(self)
         self.setWindowTitle("Various Layout Widgets")
         self.setFixedWidth(640)
         self.setFixedHeight(480)
@@ -69,7 +69,8 @@ class Form(QWidget):
         print("버튼 클릭")
 
     def __del__(self):
-        self.clientSocket.stop()
+        pass
+        # self.clientSocket.stop()
 
 
 if __name__ == "__main__":
