@@ -1,7 +1,6 @@
 import sys
 
-from PyQt5.uic.uiparser import QtWidgets
-
+from PyQt5 import QtWidgets
 from login import Ui_PACHE
 
 if __name__ == "__main__":
