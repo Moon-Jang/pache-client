@@ -1,7 +1,6 @@
 from threading import *
-import client_socket
 from PyQt5.QtCore import Qt, pyqtSignal, QObject
-
+import socket
 
 class Signal(QObject):
     recv_signal = pyqtSignal(str)
@@ -9,23 +8,21 @@ class Signal(QObject):
 
 
 class ClientSocket:
-
+    
     def __init__(self, parent):
         self.parent = parent
-
         self.recv = Signal()
         self.recv.recv_signal.connect(self.parent.updateMsg)
         self.disconn = Signal()
         self.disconn.disconn_signal.connect(self.parent.updateDisconnect)
-
         self.bConnect = False
-
+    
     def __del__(self):
         self.stop()
-
+    
     def connectServer(self, ip, port):
-        self.client = client_socket(client_socket.AF_INET, client_socket.SOCK_STREAM)
-
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        
         try:
             self.client.connect((ip, port))
         except Exception as e:
@@ -34,19 +31,20 @@ class ClientSocket:
         else:
             self.bConnect = True
             self.t = Thread(target=self.receive, args=(self.client,))
+            self.t.daemon = True
             self.t.start()
             print('Connected')
-
+        
         return True
-
+    
     def stop(self):
         self.bConnect = False
         if hasattr(self, 'client'):
             self.client.close()
-            del (self.client)
+            del self.client
             print('Client Stop')
             self.disconn.disconn_signal.emit()
-
+    
     def receive(self, client):
         while self.bConnect:
             try:
@@ -59,14 +57,14 @@ class ClientSocket:
                 if msg:
                     self.recv.recv_signal.emit(msg)
                     print('[RECV]:', msg)
-
+        
         self.stop()
-
+    
     def send(self, msg):
         if not self.bConnect:
             return
-
+        
         try:
-            self.client.send(msg.encode())
+            self.client.send(msg.encode("utf-8"))
         except Exception as e:
             print('Send() Error : ', e)

@@ -1,5 +1,5 @@
 config_socket = {
     "bindIP": "",
-    "serverIP": "",
-    "PORT": ""
+    "serverIP": "192.168.23.128",
+    "PORT": 3000
 }
