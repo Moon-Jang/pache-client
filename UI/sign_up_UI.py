@@ -6,13 +6,16 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import  *
 from PyQt5.QtGui import *
 
+from UIStyle import WhiteButton
+
+
 class signUp(QWidget) :
-    def __init__(self, parent, server):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.setWindowTitle("회원가입")
         self.initUI()
         #서버
-        self.server = server
+        #self.server = server
         # 체크 값
         self.id_check = False
         self.checked_id = ""
@@ -28,7 +31,7 @@ class signUp(QWidget) :
 
         # 위젯
         self.photo_select_image_label = QLabel()
-        self.photo_select_button = QPushButton("사진 선택")
+        self.photo_select_button = WhiteButton("사진 선택")
         self.id_lineEdit = QLineEdit()
         self.id_overlap_check_button = QPushButton("중복 확인")
         self.pw_lineEdit = QLineEdit()
@@ -44,7 +47,7 @@ class signUp(QWidget) :
         self.pw_same_check_lineEdit.setEchoMode(QLineEdit.Password)
 
         # 위젯 스타일
-        self.photo_select_button.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
+        #self.photo_select_button.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
 
         # 크기설정
         self.SIGNUP_WIDTH = 360
