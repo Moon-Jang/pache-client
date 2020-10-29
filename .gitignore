@@ -1,5 +1,12 @@
 # venv
 /venv
+
 /env
 /.idea
+/__pycache__
+
+# .idea
+/.idea
+
+# __pycache__
 /__pycache__
