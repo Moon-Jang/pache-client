@@ -110,3 +110,11 @@ if __name__ == "__main__":
     ui.setupUi(PACHE)
     PACHE.show()
     sys.exit(app.exec_())
+
+payload = {
+    "request": "login",
+    "params": {
+        "id": "testId",
+        "password": "1234"
+    }
+}
