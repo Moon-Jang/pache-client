@@ -7,10 +7,16 @@ from PyQt5.QtCore import  *
 from PyQt5.QtGui import *
 
 class signUp(QWidget) :
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent, server):
+        super().__init__(parent)
         self.setWindowTitle("회원가입")
         self.initUI()
+        #서버
+        self.server = server
+        # 체크 값
+        self.id_check = False
+        self.checked_id = ""
+        self.pw_check = False
 
     def initUI(self):
 
@@ -21,8 +27,8 @@ class signUp(QWidget) :
         self.idLayout = QHBoxLayout()
 
         # 위젯
-        self.photo_select_button = QPushButton()
-        self.photo_select_label = QLabel("사진 선택")
+        self.photo_select_image_label = QLabel()
+        self.photo_select_button = QPushButton("사진 선택")
         self.id_lineEdit = QLineEdit()
         self.id_overlap_check_button = QPushButton("중복 확인")
         self.pw_lineEdit = QLineEdit()
@@ -31,14 +37,14 @@ class signUp(QWidget) :
         self.email_lineEdit = QLineEdit()
         self.submit_button = QPushButton("확인")
 
-        # 체크 값
-        self.id_check = False
-        self.checked_id = ""
-        self.pw_check = False
+
 
         # 위젯 설정
         self.pw_lineEdit.setEchoMode(QLineEdit.Password)
         self.pw_same_check_lineEdit.setEchoMode(QLineEdit.Password)
+
+        # 위젯 스타일
+        self.photo_select_button.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
 
         # 크기설정
         self.SIGNUP_WIDTH = 360
@@ -50,8 +56,8 @@ class signUp(QWidget) :
 
         self.setMinimumSize(self.SIGNUP_WIDTH, self.SIGNUP_HEIGHT)
 
-        self.photo_select_button.setFixedSize(self.PHOTO_SIZE, self.PHOTO_SIZE)
-        self.photo_select_label.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
+        self.photo_select_image_label.setFixedSize(self.PHOTO_SIZE, self.PHOTO_SIZE)
+        self.photo_select_button.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.id_lineEdit.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.id_overlap_check_button.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.pw_lineEdit.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
@@ -78,8 +84,8 @@ class signUp(QWidget) :
         self.pw_same_check_lineEdit.textChanged.connect(self.pw_same_check_event)
 
         # 배치
+        self.photoLayout.addWidget(self.photo_select_image_label)
         self.photoLayout.addWidget(self.photo_select_button)
-        self.photoLayout.addWidget(self.photo_select_label)
 
         self.idLayout.addWidget(self.id_lineEdit)
         self.idLayout.addWidget(self.id_overlap_check_button)
@@ -99,8 +105,8 @@ class signUp(QWidget) :
         self.vLayout.addStretch(2)
 
         # 정렬
+        self.photoLayout.setAlignment(self.photo_select_image_label, Qt.AlignCenter)
         self.photoLayout.setAlignment(self.photo_select_button, Qt.AlignCenter)
-        self.photoLayout.setAlignment(self.photo_select_label, Qt.AlignCenter)
 
         self.vLayout.setAlignment(self.photoLayout, Qt.AlignCenter)
 
@@ -112,17 +118,21 @@ class signUp(QWidget) :
 
         if len(FPath[0]) > 0 :
             image = QPixmap(FPath[0])
-            self.photo_select_button.setIconSize(QSize(self.PHOTO_SIZE, self.PHOTO_SIZE))
-            self.photo_select_button.setIcon(QIcon(image))
+            #.photo_select_image_label.setPixmap(QSize(self.PHOTO_SIZE, self.PHOTO_SIZE))
+            image.scaledToWidth(self.PHOTO_SIZE)
+            self.photo_select_image_label.setPixmap(image)
 
-            self.photo_select_button.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
+            self.photo_select_image_label.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
 
     def id_overlap_check_event(self):
         message = dict()
+        params = dict()
         message["request"] = "id_overlap_check"
+        message["params"] = params
         if (self.id_lineEdit.text() != "") :
-            message["id"] = self.id_lineEdit.text()
+            params["id"] = self.id_lineEdit.text()
             print(json.dumps(message))
+            self.server.send(json.dumps(message))
             # 임시
             self.id_check = True
             self.checked_id = self.id_lineEdit.text()
@@ -154,12 +164,15 @@ class signUp(QWidget) :
     def submit_event(self):
         if (self.id_check and self.pw_check) :
             message = dict()
+            params = dict()
             message["request"] = "sign_up_submit"
-            message["id"] = self.id_lineEdit.text()
-            message["pw"] = self.pw_lineEdit.text()
-            message["nickname"] = self.nickname_lineEdit.text()
-            message["email"] = self.email_lineEdit.text()
+            message["params"] = params
+            params["id"] = self.id_lineEdit.text()
+            params["password"] = self.pw_lineEdit.text()
+            params["nickname"] = self.nickname_lineEdit.text()
+            params["email"] = self.email_lineEdit.text()
             print(json.dumps(message))
+            self.server.send(json.dumps(message))
         else :
             if (not self.id_check) :
                 QMessageBox.about(self, "", "아이디 중복 확인을 해주세요.")
