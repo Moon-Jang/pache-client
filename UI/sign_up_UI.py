@@ -6,20 +6,24 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import  *
 from PyQt5.QtGui import *
 
-from UIStyle import WhiteButton
+from UIStyle import *
 
 
 class signUp(QWidget) :
-    def __init__(self):
+    def __init__(self, server):
         super().__init__()
         self.setWindowTitle("회원가입")
         self.initUI()
         #서버
-        #self.server = server
+        self.server = server
+
         # 체크 값
         self.id_check = False
         self.checked_id = ""
         self.pw_check = False
+
+        # 스타일
+
 
     def initUI(self):
 
@@ -31,14 +35,14 @@ class signUp(QWidget) :
 
         # 위젯
         self.photo_select_image_label = QLabel()
-        self.photo_select_button = WhiteButton("사진 선택")
+        self.photo_select_button = Alpha0Button("사진 선택")
         self.id_lineEdit = QLineEdit()
-        self.id_overlap_check_button = QPushButton("중복 확인")
+        self.id_overlap_check_button = GrayButton("중복 확인")
         self.pw_lineEdit = QLineEdit()
         self.pw_same_check_lineEdit = QLineEdit()
         self.nickname_lineEdit = QLineEdit()
         self.email_lineEdit = QLineEdit()
-        self.submit_button = QPushButton("확인")
+        self.submit_button = GrayButton("확인")
 
 
 
@@ -46,13 +50,15 @@ class signUp(QWidget) :
         self.pw_lineEdit.setEchoMode(QLineEdit.Password)
         self.pw_same_check_lineEdit.setEchoMode(QLineEdit.Password)
 
-        # 위젯 스타일
+        # 스타일
+        self.setStyleSheet("background-color : rgb(255, 255, 255)")
         #self.photo_select_button.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
 
         # 크기설정
         self.SIGNUP_WIDTH = 360
         self.SIGNUP_HEIGHT = 540
         self.PHOTO_SIZE = 60
+        self.ID_OVERLAP_BUTTON_WIDTH = 90
         self.WIDGET_DEFAULT_HEIGHT = 30
         self.SUBMIT_HEIGHT = 45
         self.LAYOUT_SPACING = 10
@@ -62,6 +68,7 @@ class signUp(QWidget) :
         self.photo_select_image_label.setFixedSize(self.PHOTO_SIZE, self.PHOTO_SIZE)
         self.photo_select_button.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.id_lineEdit.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
+        self.id_overlap_check_button.setFixedWidth(self.ID_OVERLAP_BUTTON_WIDTH)
         self.id_overlap_check_button.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.pw_lineEdit.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
         self.pw_same_check_lineEdit.setFixedHeight(self.WIDGET_DEFAULT_HEIGHT)
@@ -125,7 +132,9 @@ class signUp(QWidget) :
             image.scaledToWidth(self.PHOTO_SIZE)
             self.photo_select_image_label.setPixmap(image)
 
-            self.photo_select_image_label.setStyleSheet("background-color : rgba(255, 255, 255, 0)")
+            self.photo_select_image_label.setStyleSheet(
+                "border : 1px solid black;"
+                "background-color : rgba(255, 255, 255, 0)")
 
     def id_overlap_check_event(self):
         message = dict()

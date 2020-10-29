@@ -1,5 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QWidget, QStackedWidget, QVBoxLayout
 
+from UI.sign_up_UI import signUp
+from UIStyle import *
 from client_socket import ClientSocket
 import json
 
@@ -14,6 +17,8 @@ class Ui_PACHE(object):
         server_ip = config_socket["serverIP"]
         port = config_socket["PORT"]
         self.client_socket.connectServer(server_ip, port)
+
+
     
     def set_id(self, value):
         self.id = value
@@ -22,9 +27,28 @@ class Ui_PACHE(object):
         self.password = value
     
     def setupUi(self, PACHE):
+        self.main_widget = QtWidgets.QWidget()
+        self.sign_up_widget = signUp(self.client_socket)
+
+        self.layers = QStackedWidget()
+        self.layers.addWidget(self.main_widget)
+        self.layers.addWidget(self.sign_up_widget)
+        self.layers.setCurrentIndex(0)
+
+        self.back_button = Alpha0Button("<")
+        self.back_button.setFixedSize(30, 30)
+
+        self.mainLayout = QVBoxLayout()
+        self.mainLayout.addWidget(self.back_button)
+        self.mainLayout.addWidget(self.layers)
+
+        if (self.layers.currentIndex() == 0) :
+            self.back_button.setHidden(True)
+        PACHE.setLayout(self.mainLayout)
+        PACHE.setStyleSheet("background-color : rgb(255, 255, 255)")
+
         PACHE.setObjectName("PACHE")
         PACHE.resize(390, 542)
-        self.main_widget = QtWidgets.QWidget(PACHE)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -54,6 +78,7 @@ class Ui_PACHE(object):
                                           "font-size: 16px;\n"
                                           "font-weight: 600;")
         self.button_siginup.setObjectName("button_siginup")
+        self.button_siginup.clicked.connect(self.sign_up_btn_cliked)
         # button_login
         self.button_login = QtWidgets.QPushButton(self.main_widget)
         self.button_login.setGeometry(QtCore.QRect(200, 280, 131, 41))
@@ -66,10 +91,10 @@ class Ui_PACHE(object):
                                         "font-weight: 600;")
         self.button_login.setObjectName("button_login")
         self.button_login.clicked.connect(self.btn_clicked)
-        PACHE.setCentralWidget(self.main_widget)
-        self.statusbar = QtWidgets.QStatusBar(PACHE)
-        self.statusbar.setObjectName("statusbar")
-        PACHE.setStatusBar(self.statusbar)
+        #PACHE.setCentralWidget(self.main_widget)
+        #self.statusbar = QtWidgets.QStatusBar(PACHE)
+        #self.statusbar.setObjectName("statusbar")
+        #PACHE.setStatusBar(self.statusbar)
         
         self.retranslateUi(PACHE)
         QtCore.QMetaObject.connectSlotsByName(PACHE)
@@ -93,6 +118,17 @@ class Ui_PACHE(object):
         payload = json.dumps(payload_data)
         print(payload)
         self.client_socket.send(payload)
+
+    def sign_up_btn_cliked(self):
+        self.back_button.setHidden(False)
+        self.layers.setCurrentIndex(1)
+        self.back_button.clicked.connect(lambda : self.back_btn_clicked(0))
+
+    def back_btn_clicked(self, index):
+        self.layers.setCurrentIndex(0)
+        if (self.layers.currentIndex() == 0) :
+            self.back_button.setHidden(True)
+
     
     def updateMsg(self, msg):
         print("updateMsg: ", msg)
@@ -105,7 +141,7 @@ if __name__ == "__main__":
     import sys
     
     app = QtWidgets.QApplication(sys.argv)
-    PACHE = QtWidgets.QMainWindow()
+    PACHE = QtWidgets.QWidget()
     ui = Ui_PACHE()
     ui.setupUi(PACHE)
     PACHE.show()
