@@ -3,7 +3,6 @@ from PyQt5.QtCore import  *
 from PyQt5.QtGui import *
 from UI.sign_up_UI import signUp
 import sys, os
-from UIStyle import *
 from client_socket import ClientSocket
 import json
 from config import config_socket
@@ -26,7 +25,7 @@ class Ui_PACHE(object):
     
     def setupUi(self, PACHE):
         self.main_widget = QWidget()
-        self.sign_up_widget = signUp(self.client_socket)
+        self.sign_up_widget = signUp()
         
         self.layers = QStackedWidget()
         self.layers.addWidget(self.main_widget)
@@ -124,7 +123,7 @@ class Ui_PACHE(object):
     def sign_up_btn_cliked(self):
         self.back_button.setHidden(False)
         self.layers.setCurrentIndex(1)
-        self.back_button.clicked.connect(lambda: self.back_btn_clicked(0))
+        self.back_button.clicked.connect(self.back_btn_clicked(0))
     
     def back_btn_clicked(self, index):
         self.layers.setCurrentIndex(0)

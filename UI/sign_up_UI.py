@@ -6,9 +6,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import  *
 from PyQt5.QtGui import *
 
-from UIStyle import WhiteButton
-
-
 class signUp(QWidget) :
     def __init__(self):
         super().__init__()
@@ -31,7 +28,7 @@ class signUp(QWidget) :
 
         # 위젯
         self.photo_select_image_label = QLabel()
-        self.photo_select_button = WhiteButton("사진 선택")
+        self.photo_select_button = QPushButton("사진 선택")
         self.id_lineEdit = QLineEdit()
         self.id_overlap_check_button = QPushButton("중복 확인")
         self.pw_lineEdit = QLineEdit()
