@@ -20,17 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc9c5582-c8b8-4345-bcc3-fe8820c82281" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pache-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pache-client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/login_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/login_old.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/sign_up_UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/sign_up_UI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,15 +54,37 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\pache-client\UI" />
+      <recent name="D:\dev\pache-client\ui" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\dev\pache-client" />
       <recent name="D:\dev\pache-client\ui" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\dev\pache-client\ui" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.index">
+    <configuration name="index" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pache-client" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\dev\pache-client\UI\index.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pache-client" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,11 +93,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\dev\pache-client\UI\login.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/login.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="login_old" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pache-client" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,11 +114,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/login_old.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,9 +127,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sign_up_UI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pache-client" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/sign_up_UI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.sign_up_UI" />
+      <item itemvalue="Python.login" />
+      <item itemvalue="Python.login_old" />
+      <item itemvalue="Python.index" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
+        <item itemvalue="Python.index" />
+        <item itemvalue="Python.login_old" />
+        <item itemvalue="Python.sign_up_UI" />
         <item itemvalue="Python.login" />
       </list>
     </recent_temporary>
@@ -116,6 +172,21 @@
       <option name="presentableId" value="Default" />
       <updated>1603801903287</updated>
     </task>
+    <task id="LOCAL-00001" summary="change directory tree">
+      <created>1603990190493</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603990190493</updated>
+    </task>
+    <task id="LOCAL-00002" summary="로그인 UI 변경">
+      <created>1604215989915</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604215989915</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -134,37 +205,63 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="change directory tree" />
+    <MESSAGE value="로그인 UI 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="로그인 UI 변경" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="294" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604037512808">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="294" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1604037512808" />
     <state x="620" y="260" key="FileChooserDialogImpl" timestamp="1603866230093">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="620" y="260" key="FileChooserDialogImpl/0.0.1680.1010@0.0.1680.1010" timestamp="1603866230093" />
-    <state width="816" height="271" key="GridCell.Tab.0.bottom" timestamp="1603989773386">
+    <state width="1659" height="281" key="GridCell.Tab.0.bottom" timestamp="1604605110177">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="816" height="271" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1603989773386" />
-    <state width="816" height="271" key="GridCell.Tab.0.center" timestamp="1603989773386">
+    <state width="1659" height="281" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1604605110177" />
+    <state width="1659" height="281" key="GridCell.Tab.0.center" timestamp="1604605110177">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="816" height="271" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1603989773386" />
-    <state width="816" height="271" key="GridCell.Tab.0.left" timestamp="1603989773385">
+    <state width="1659" height="281" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1604605110177" />
+    <state width="1659" height="281" key="GridCell.Tab.0.left" timestamp="1604605110177">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="816" height="271" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1603989773385" />
-    <state width="816" height="271" key="GridCell.Tab.0.right" timestamp="1603989773386">
+    <state width="1659" height="281" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1604605110177" />
+    <state width="1659" height="281" key="GridCell.Tab.0.right" timestamp="1604605110177">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="816" height="271" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1603989773386" />
+    <state width="1659" height="281" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1604605110177" />
+    <state width="1659" height="336" key="GridCell.Tab.1.bottom" timestamp="1603997314537">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1659" height="336" key="GridCell.Tab.1.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1603997314537" />
+    <state width="1659" height="336" key="GridCell.Tab.1.center" timestamp="1603997314537">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1659" height="336" key="GridCell.Tab.1.center/0.0.1680.1010@0.0.1680.1010" timestamp="1603997314537" />
+    <state width="1659" height="336" key="GridCell.Tab.1.left" timestamp="1603997314537">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1659" height="336" key="GridCell.Tab.1.left/0.0.1680.1010@0.0.1680.1010" timestamp="1603997314537" />
+    <state width="1659" height="336" key="GridCell.Tab.1.right" timestamp="1603997314537">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="1659" height="336" key="GridCell.Tab.1.right/0.0.1680.1010@0.0.1680.1010" timestamp="1603997314537" />
     <state x="341" y="149" key="SettingsEditor" timestamp="1603806511600">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="149" key="SettingsEditor/0.0.1680.1010@0.0.1680.1010" timestamp="1603806511600" />
-    <state x="432" y="238" key="Vcs.Push.Dialog.v2" timestamp="1603823868653">
+    <state x="432" y="238" key="Vcs.Push.Dialog.v2" timestamp="1604215999439">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="432" y="238" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1603823868653" />
+    <state x="432" y="238" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1604215999439" />
+    <state x="-5" y="92" width="1662" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604215950584">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="-5" y="92" width="1662" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1604215950584" />
     <state x="600" y="293" key="git4idea.ui.GitUnstashDialog" timestamp="1603808838671">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
